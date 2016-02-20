@@ -1,0 +1,7 @@
+HTML5study
+
+HTML5study 是Andyliwr在2016年2月创建的一个github项目，用来记录自己学习前端的点滴，希望能给后来的菜鸟们提供一些帮助。当然如果在阅读的过程中有什么不同的意见，欢迎与我交流，本人常用邮箱：121960425@qq.com。
+
+这些例子和技术基本都是在极客学院上边看边学的。极客学院是一个非常好的IT技术学习的在线网站，老师们都讲得非常好，技术类别也很多很全，推荐大家去学习。当然如果你真的要注册，请带好我的邀请码，这样我们彼此就能都获得一个月的使用vip，看各种技术视频均免费。我的邀请链接：http://e.jikexueyuan.com/invite/index.html?ZnJvbV9jb2RlPUpJRUdVVyZ1bmFtZT3mnIjlhYnlgL7ln44mY2hhbm5lbD1pbnZpdGVfMTAwd19zaGFyZWJ1dHRvbl9jb3B5MQ== ，收好，不谢！！
+
+HTML5study将会包含全面的前端开发技术学习，现在正在学习的最基本的HTML5，接下里会有js，css，git等等

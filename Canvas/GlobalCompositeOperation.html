@@ -1,0 +1,99 @@
+<!--文档已被Andyliwr于2016年2月19日改良，显示所有的不同属性的合并效果，不用再输入index值刷新再看每个属性的效果-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图形的合并</title>
+    <script type="text/javascript">
+        function draw(){
+            var properity = new Array(
+                    "source-over",
+                    "source-atop",
+                    "source-in",
+                    "source-over",
+                    "source-out",
+                    "destination-over",
+                    "destination-in",
+                    "destination-out",
+                    "destination-atop",
+                    "lighter",
+                    "darker",
+                    "xor",
+                    "copy"
+            );
+            var h2 = document.getElementById('h2');
+            //第一for循环是用来产生13个id不同的canvas元素
+            for(var j=12; j>=0; j--){
+                //这里使用了insertAdjacentHTML方法在h2后面动态添加canvas元素
+                h2.insertAdjacentHTML("afterEnd", "<div class='canvasdiv'><canvas id='canvas"+j+"' width='100px' height='100px'></canvas><p class='p'>"+properity[j]+"</p></div>")
+            }
+            //第二个循环是根据每个canvas的id，选择合适的属性画图
+            for(var k=0; k<13; k++){
+                var canvas = document.getElementById('canvas'+k);
+                var context = canvas.getContext("2d");
+                context.fillStyle = "blue";
+                context.fillRect(10, 10, 60, 60);
+                context.globalCompositeOperation = properity[k];
+                context.beginPath();
+                context.fillStyle = "red";
+                context.arc(60, 30, 30, 0, Math.PI*2, false);
+                context.fill();
+                context.closePath();
+            }
+        }
+    </script>
+    <style type="text/css">
+        .canvasdiv{
+            width: 130px;
+            height: 130px;
+            background-color: aqua;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            padding-top: 10px;
+            float: left;
+        }
+        .p{
+            margin: 0px 0px;
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <!--globalCompositeOperation属性如下：
+        source-atop:新图形中与原有内容重叠的部分会被绘制，并覆盖于原有内容之上。
+        source-in：新图形会仅仅出现与原有内容重叠的部分。其它区域都变成透明的。
+        source-over (default)：这是默认设置，新图形会覆盖在原有内容之上。
+        source-out：结果是只有新图形中与原有内容不重叠的部分会被绘制出来。
+        destination-over：会在原有内容之下绘制新图形。
+        destination-in:原有内容中与新图形重叠的部分会被保留，其它区域都变成透明的。
+        destination-out:原有内容中与新图形不重叠的部分会被保留。
+        destination-atop:原有内容中与新内容重叠的部分会被保留，并会在原有内容之下绘制新图形
+        lighter:两图形中重叠部分作加色处理。
+        darker:两图形中重叠的部分作减色处理。
+        xor:重叠的部分会变成透明。
+        copy:只有新图形会被保留，其它都被清除掉。
+    -->
+    <h2 id="h2">globalCompositeOperation的个各种不同属性带来的合并图像的区别</h2>
+    <!-- 清除格式代码，用来清除之前的div float：left格式带来的影响 -->
+    <div class="clear"></div>
+    <p>属性说明：</p>
+    <p><em>source-atop</em>:新图形中与原有内容重叠的部分会被绘制，并覆盖于原有内容之上。<br />
+        <em>source-in</em>：新图形会仅仅出现与原有内容重叠的部分。其它区域都变成透明的。<br />
+        <em>source-over</em> (default)：这是默认设置，新图形会覆盖在原有内容之上。<br />
+        <em>source-out</em>：结果是只有新图形中与原有内容不重叠的部分会被绘制出来。<br />
+        <em>destination-over</em>：会在原有内容之下绘制新图形。<br />
+        <em>destination-in</em>:原有内容中与新图形重叠的部分会被保留，其它区域都变成透明的。<br />
+        <em>destination-out</em>:原有内容中与新图形不重叠的部分会被保留。<br />
+        <em>destination-atop</em>:原有内容中与新内容重叠的部分会被保留，并会在原有内容之下绘制新图形<br />
+        <em>lighter</em>:两图形中重叠部分作加色处理。<br />
+        <em>darker</em>:两图形中重叠的部分作减色处理。<br />
+        <em>xor</em>:重叠的部分会变成透明。<br />
+        <em>copy</em>:只有新图形会被保留，其它都被清除掉。</p>
+</body>
+</html>

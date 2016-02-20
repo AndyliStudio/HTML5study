@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas画图形</title>
+</head>
+<script type="text/javascript">
+    function draw(id){
+        var canvas = document.getElementById(id);
+        var context = canvas.getContext("2d");
+        context.fillStyle = "#eeeeef";
+        context.fillRect(0, 0, 500, 500);
+        var image = new Image();
+        image.src = "img/yuqiong.jpg";
+        image.onload = function(){
+            drawImage(context, image);
+        }
+    }
+    function drawImage(context, image){
+        //context.drawImage(image, 0, 0);
+        context.drawImage(image, 0, 0, 200, 250);
+        context.drawImage(image, 270, 270, 380, 380, 230, 230, 250, 250);
+    }
+</script>
+<body onload="draw('canvas')">
+<!--
+    context.drawImage(img, x, y)
+    context.drawImage(img, x, y, w, h)
+    context.drawImage(img, sx, sy, sw, sh, dx, dy, sw, dh)
+ -->
+    <canvas id="canvas" width="500px" height="500px"></canvas>
+</body>
+</html>
